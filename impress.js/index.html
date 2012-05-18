@@ -1,0 +1,336 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link href="css/monokai.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<body class="impress-not-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+    <div id="why" class="step" data-x="0" data-y="-1500">
+      <q>Why Haskell?</q>
+    </div>
+
+    <div id="awesome" class="step" data-x="1000" data-y="-1100">
+      <img src="img/logical_awesome.jpg" />
+    </div>
+
+    <!-- <div class="step slide" data-x="1000" data-y="-1100"> -->
+    <!--     <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q> -->
+    <!-- </div> -->
+
+    <div id="features" class="step" data-x="0" data-y="-700">
+      Haskell is:
+      <ul>
+        <li>Functional
+        <li>Pure
+        <li>Lazy Evaluated
+        <li>Strongly Typed
+        <li>General Purpose
+      </ul>
+        <!-- <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q> -->
+    </div>
+
+    <div id="mfeathers" class="step" data-x="1000" data-y="-300">
+      <q>OO makes code understandable by encapsulating moving parts. FP makes code understandable by minimizing moving parts. -Michael Feathers</q>
+    </div>
+
+    <div id="your_problem" class="step h_center" data-x="0" data-y="100">
+      <img src="img/Grizzly.jpg" />
+      <h1 >Your Problem</h1>
+    </div>
+
+    <div id="on_oo" class="step h_center" data-x="1000" data-y="500">
+      <img src="img/corgis.jpg" />
+      <h1>Your Problem On Objects</h1>
+    </div>
+
+    <div id="on_func" class="step h_center" data-x="0" data-y="900">
+      <img src="img/bear_12.jpg" />
+      <h1>Your Problem Functional</h1>
+    </div>
+
+    
+    <div id="functional" class="step " data-x="1000" data-y="1300">
+      <q> Functional </q>
+      <ul>
+        <li>Based on lambda calculus
+        <li>High level
+        <li>Describing the logical solution, not instructing the hardware
+      </ul>
+
+    </div>
+
+    <div id="fibonacci_c" class="step" data-x="0" data-y="1700">
+      <pre>
+        <code class="c">
+#include <iostream>
+
+// Fibonacci numbers, imperative style
+int fibonacci(int iterations)
+{
+  int first = 0, second = 1; // seed values
+
+  for (int i = 0; i < iterations; ++i) {
+    int sum = first + second;
+    first = second;
+    second = sum;
+  }
+
+  return first;
+}
+
+int main()
+{
+  std::cout << fibonacci(10) << "\n";
+  return 0;
+}
+        </code>
+      </pre>
+    </div>
+
+    <div id="fibonacci_h" class="step" data-x="1000" data-y="2100">
+      <pre>
+        <code class="haskell">
+fibRecurrence first second = first : fibRecurrence second (first + second)
+fibonacci = fibRecurrence 0 1
+main = print (fibonacci !! 10)
+        </code>
+      </pre>
+    </div>
+
+    <div id="pure" class="step h_center" data-x="0" data-y="2500">
+      <h1>Pure</h1>
+      <img src="img/no_null.jpg"/>
+    </div>
+
+
+    <div id="pure_1" class="step" data-x="1000" data-y="2900">
+      <h1>Purity</h1>
+      <ul>
+        <li>No side effects
+        <li>No mutable state*
+        <li>No variables
+        <li>No loops
+      </ul>
+    </div>
+
+    <div id="pure_2" class="step" data-x="0" data-y="3300">
+      <h1>Purity</h1>
+      <ul>
+        <li>Easier to reason about your code
+        <li>Easier to test
+        <li>Easier to optimize
+      </ul>
+    </div>
+
+    <div id="lazy" class="step h_center" data-x="1000" data-y="3700">
+      <img src="img/lazy.jpg" />
+    </div>
+    
+    <div id="lazy_demo" class="step h_center" data-x="0" data-y="4100">
+      <q>https://github.com/anthony-coble/boggle-solver</q>
+    </div>
+
+    <div id="lazy_demo_1" class="step" data-x="0" data-y="4300" data-scale="0.75">
+      <pre>
+        <code class="haskell">
+$ ghci
+*Prelude> :load boggle_solver.hs
+*Main> matrix <- buildMatrix
+*Main> print $ buildTree matrix
+        </code>
+      </pre>
+    </div>
+
+    <div id="lazy_demo_2" class="step" data-x="300" data-y="4300" data-scale="0.75">
+      <pre>
+        <code class="bash">
+$ ghc --make boggle_solver.hs
+$ time ./boggle_solver
+        </code>
+      </pre>
+    </div>
+
+
+    <div id="strongly_typed" class="step" data-x="1000" data-y="4500">
+      <q>Strongly typed</q>
+      <ul>
+        <li>Type safety
+        <li>Type Inference
+      </ul>
+    </div>
+    
+
+    <div id="strongly_typed_example" class="step" data-x="0" data-y="4900">
+      <pre>
+        <code class="haskell">
+*Main Text.Regex.Posix> "mississippi" =~ "i(s|p)" :: Bool
+True
+ 
+*Main Text.Regex.Posix> "mississippi" =~ "i(s|p)" :: String
+"is"
+ 
+*Main Text.Regex.Posix> "mississippi" =~ "i(s|p)" :: Int
+3
+ 
+*Main Text.Regex.Posix> "mississippi" =~ "i(s|p)" :: (String,String,String)
+("m","is","sissippi")
+ 
+*Main Text.Regex.Posix> "mississippi" =~ "i(s|p)" :: (Int,Int)
+(1,2)
+        </code>
+      </pre>
+    </div>
+
+    <div id="general_purpose" class="step" data-x="2000" data-y="-1500">
+      <q>Haskell is general purpose</q>
+    </div>
+
+
+    <div id="yesode" class="step" data-x="3000" data-y="-1100" >
+      <br />
+      <br />
+      <h1>Yesode web framework</h1>
+      <code>
+        <pre>
+{-# LANGUAGE TypeFamilies, QuasiQuotes, MultiParamTypeClasses,
+TemplateHaskell, OverloadedStrings #-}
+import Yesod
+
+data HelloWorld = HelloWorld
+
+mkYesod "HelloWorld" [parseRoutes|
+/ HomeR GET
+|]
+
+instance Yesod HelloWorld
+
+getHomeR :: Handler RepHtml
+getHomeR = defaultLayout [whamlet|Hello World!|]
+
+main :: IO ()
+main = warpDebug 3000 HelloWorld
+        </code>
+      </pre>
+    </div>
+
+    <div id="yesode_features" class="step" data-x="2000" data-y="-700">
+      <q>Yesode features</q>
+      <ul>
+        <li>Type safe, down to the urls
+        <li>Scalable and performant
+        <li>Light weight syntax
+        <li>scaffolding
+      </ul>
+    </div>
+
+    <div id="yesode_performance" class="step h_center" data-x="3000" data-y="-300">
+      <q>Yesode performance</q>
+      <img src="img/yesode_performance.png"/>
+    </div>
+
+    <div id="opengl" class="step h_center" data-x="2000" data-y="100">
+      <q> Opengl </q>
+      <q>(play.hs demo)</q>
+    </div>
+
+
+    <div id="parallel" class="step" data-x="3000" data-y="500">
+      <q> Parallel </q>
+      <ul>
+        <li>Data.Parallel
+        <li>Data.Array.Accelerate
+      </ul>
+    </div>
+    
+    <div id="community" class="step h_center" data-x="2000" data-y="900">
+      <h1> Community </h1>
+      <img src="img/eric.jpg" />
+    </div>
+
+    <div id="hackage" class="step" data-x="3000" data-y="1300">
+      <h1> Haskell.org </h1>
+      <ul>
+        <li>Documentation
+        <li>Source code
+        <li>Demos
+        <li>White papers
+        <li>Blogs
+    </div>
+
+    <div id="Hoogle" class="step" data-x="2000" data-y="1700">
+      <h1><a href="http://www.haskell.org/hoogle"> Hoogle - haskell.org/hoogle </a></h1>
+    </div>
+    
+    <div id="Cabal" class="step" data-x="3000" data-y="2100">
+      <h1>Cabal</h1>
+      <q> Search, manage, install, and deploy packages </q>
+    </div>
+
+    <div id="haskell_chat" class="step" data-x="2000" data-y="2500">
+      <h1>#Haskell - freenode.net</h1>
+      <ul>
+        <li>Very friendly
+        <li>Large community (always over 800 people)
+        <li>All skill levels
+      <ul>
+    </div>
+
+    <div id="future" class="step" data-x="3000" data-y="2900">
+      <q>The future is functional</q>
+    </div>
+
+    <div id="get_started" class="step h_center" data-x="2000" data-y="3300">
+      <q><a href="http://www.learnyouahaskell.com"> Learn you a haskell </a></q>
+    </div>
+
+    <div id="end_logo" class="step" data-x="6000" data-y="1700" data-scale="5">
+      <img src="img/haskell-logo-with-name.jpg" />
+    </div>
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+<script type="text/javascript">
+  hljs.initHighlightingOnLoad();
+</script>
+
+</body>
+</html>
+
+
+

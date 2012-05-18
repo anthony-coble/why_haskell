@@ -1,0 +1,40 @@
+Boggle Solver
+==============
+
+I ran across this stack over flow post the other day http://stackoverflow.com/questions/746082/how-to-find-list-of-possible-words-from-a-letter-matrix-boggle-solver. It sounded like a fun problem, so I booked marked it to solve it over the weekend. Here is that solution.
+
+Building
+--------
+$ ghc --make boggle_solver.hs
+
+Run it
+------
+there are two ways to run the app, by iteself like:
+$ ./boggle_solver
+where it will randomly generate a game board and then scour it for words from the dictionary.
+Alertnatively you can provide the gameboard (so you can use the app on a real game of boggle) at the command line like so:
+$ ./boggle_solver "akifjioldfoshued"
+
+the game board is entered in this order:
+[01] [02] [03] [04]
+[05] [06] [07] [08]
+[09] [10] [11] [12]
+[13] [14] [15] [16]
+
+So the string "akifjioldfoshued" represents the board:
+
+a k i f
+j i o l
+d f o s
+h u e d
+
+Overview
+--------
+
+This solution builds a tree structure representing the game board, then compares each of the words in the dictionary against that structure to see if the word is contained within it.
+
+Notes
+-----
+1. Thanks to lazy execution, the tree represnting the game board is only built out as far as needed to determine if the board contains the words in the dictionary. Not exhausting all possible routes through the board is an exceptional optimization. To test it simple load up the application in ghci (:load boggle_solver.hs) and print the full tree structure to the screen (print $ buildTree "akifjioldfoshued") and note how long it runs :)
+
+2. The dictionry contains words that are too short to be valid in boggle, were I to be tuning this for speed I would remove those words from the dictionary. Since the app run in 0.2 - 0.3 seconds I haven't bothered.
